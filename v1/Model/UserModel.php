@@ -16,9 +16,9 @@ class UserModel extends Database
     }
     public function createUser($username,$password,$mobile,$bgroup)
     {
-        $hash = password_hash($password,PASSWORD_DEFAULT);
+       
         return $this->insert("INSERT INTO tbl_user_data(username,password,mobile,bgroup) VALUES(?,?,?,?)",
-        ["ssss",array($username,$hash,$mobile,$bgroup)]);
+        ["ssss",array($username,$password,$mobile,$bgroup)]);
     }
 }
 
